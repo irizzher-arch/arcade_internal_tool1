@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-slate-950: #140404;
+  --color-slate-900: #3e0c0d;
+  --color-slate-850: #4a0e13;
+  --color-slate-800: #4c0a15;
+  --color-slate-700: #6b141f;
+  --color-slate-600: #8c2e28;
+  --color-slate-500: #cb7349;
+  --color-slate-400: #e09265;
+  --color-slate-300: #f5b76f;
+  --color-slate-200: #fbd6a5;
+  --color-slate-100: #fff0d6;
+
+  --color-amber-500: #cb7349;
+  --color-amber-400: #f5b76f;
+  --color-amber-300: #fbd6a5;
+  --color-amber-600: #b55d34;
+
+  --color-orange-500: #cb7349;
+  --color-orange-400: #f5b76f;
+  --color-orange-600: #8c2e28;
+}
+
+@layer base {
+  :root {
+    --font-display: 'Teko', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Bebas Neue', 'Cinzel', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Diwali Diya & Lanterns Palette */
+    --color-bg-deep: #140404;
+    --color-maroon-dark: #3e0c0d;
+    --color-maroon-rich: #4a0e13;
+    --color-maroon-card: #4c0a15;
+    --color-lantern-glow: #cb7349;
+    --color-diya-gold: #f5b76f;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+}
+
+.font-mono-nums {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbars with Diwali lanterns glow */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #140404;
+}
+::-webkit-scrollbar-thumb {
+  background: #3e0c0d;
+  border-radius: 3px;
+  border: 1px solid rgba(203, 115, 73, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cb7349;
+}
+
+/* Diwali Diya & Lanterns Atmosphere */
+.diwali-lantern-bg {
+  background-color: #140404;
+  background-image: 
+    radial-gradient(circle at 15% 10%, rgba(203, 115, 73, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(245, 183, 111, 0.10) 0%, transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(76, 10, 21, 0.35) 0%, transparent 60%);
+}
+
+.diwali-lantern-pattern {
+  background-image: radial-gradient(rgba(245, 183, 111, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Glowing lantern border and shadows */
+.lantern-glow-card {
+  background: linear-gradient(135deg, rgba(62, 12, 13, 0.85) 0%, rgba(74, 14, 19, 0.9) 100%);
+  border: 1px solid rgba(203, 115, 73, 0.35);
+  box-shadow: 0 4px 20px -2px rgba(20, 4, 4, 0.8), 0 0 15px -3px rgba(203, 115, 73, 0.15);
+}
+
+.diya-gold-text {
+  color: #f5b76f;
+  text-shadow: 0 0 12px rgba(245, 183, 111, 0.4);
+}
+
+.diya-gold-gradient {
+  background: linear-gradient(135deg, #f5b76f 0%, #cb7349 100%);
+}
+
+.diya-button-glow {
+  background: linear-gradient(135deg, #cb7349 0%, #f5b76f 100%);
+  color: #140404;
+  box-shadow: 0 0 16px rgba(203, 115, 73, 0.35);
+}
+
+.diya-button-glow:hover {
+  background: linear-gradient(135deg, #f5b76f 0%, #cb7349 100%);
+  box-shadow: 0 0 22px rgba(245, 183, 111, 0.5);
+}

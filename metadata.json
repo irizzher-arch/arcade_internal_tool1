@@ -1,0 +1,6 @@
+{
+  "name": "BGMI Points Table Maker",
+  "description": "Ultra-fast BGMI tournament points table generator with parallel OCR screenshot processing, dynamic rosters, live editable leaderboard, and esports broadcast graphic export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
