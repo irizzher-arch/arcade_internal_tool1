@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { GoogleGenAI, ThinkingLevel, Type } from '@google/genai';
@@ -929,12 +930,19 @@ Return clean JSON matching the schema with zero markdown commentary.`;
 
 // Setup Vite or static serving
 async function setupServer() {
-  if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.resolve(__dirname, 'dist')));
+  const isProduction = process.env.NODE_ENV === 'production';
+  const distPath = path.resolve(__dirname, 'dist');
+  const indexPath = path.resolve(distPath, 'index.html');
+  const hasDist = fs.existsSync(indexPath);
+
+  if (isProduction || hasDist) {
+    console.log(`Serving static production build from ${distPath}`);
+    app.use(express.static(distPath));
     app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+      res.sendFile(indexPath);
     });
   } else {
+    console.log('Starting development Vite server...');
     const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
